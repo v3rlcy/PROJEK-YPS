@@ -1,0 +1,103 @@
+<?php
+
+$conn = mysqli_connect("localhost", "root", "", "rumah_sakit");
+function query($query){
+    global $conn;
+    $result = mysqli_query($conn, $query);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)){
+        $rows[] = $row;
+    }
+    return $rows;
+}
+
+function tambah($data){
+    global $conn;
+    $id_dokter = htmlspecialchars($data["id_dokter"]);
+    $nama_dokter = htmlspecialchars($data["nama_dokter"]);
+    $spesialis = htmlspecialchars($data["spesialis"]);
+    $alamat = htmlspecialchars($data["alamat"]);
+    $no_telp = htmlspecialchars($data["no_telp"])
+
+    $query = "INSERT INTO mahasiswa VALUES ('', '$id_dokter','$nama_dokter','$spesialis','$alamat','$no_telp)";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function hapus($id){
+    global $conn;
+    mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = $id");
+    return mysqli_affected_rows($conn);
+}
+
+function ubah($data){
+    global $conn;
+    $id = $data["id"];
+    $id_dokter = htmlspecialchars($data["id_dokter"]);
+    $nama_dokter = htmlspecialchars($data["nama_dokter"]);
+    $spesialis = htmlspecialchars($data["spesialis"]);
+    $alamat = htmlspecialchars($data["alamat"]);
+    $no_telp = htmlspecialchars($data["no_telp"]);
+
+    $query = "UPDATE mahasiswa SET 
+    id_dokter = '$id_dokter',
+    nama_dokter = '$nama_dokter',
+    spesialis = '$spesialis',
+    alamat = '$alamat',
+    no_telp = '$no_telp'
+    WHERE id = '$id'
+    ";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function cari($keyword) {
+    $query = "SELECT * FROM mahasiswa WHERE 
+    id_dokter LIKE '%$keyword%' OR
+    nama_dokter LIKE '%$keyword%' OR
+    spesialis LIKE '%$keyword%' OR
+    alamat LIKE '%$keyword%' OR
+    no_telp LIKE '%$keyword%'
+    ";
+    return query($query);
+}
+
+function registrasi($data) {
+    global $conn;
+
+    $username = strtolower(stripslashes($data["username"]));
+    $password = mysqli_real_escape_string($conn, $data["password"]);
+    $password2 = mysqli_real_escape_string($conn, $data["password2"]);
+
+
+    // cek username
+    $result = mysqli_query($conn, "SELECT username FROM user WHERE 
+    username = '$username'");
+
+    if ( mysqli_fetch_assoc($result) ) {
+        echo "<script>
+                alert('username sudah terdaftar!')
+            </script>";
+        return false;
+    }
+
+    // konfirmasi password
+    if( $password !== $password2 ) {
+        echo "<script>
+                alert('konfirmasi password tidak sesuai!');
+            </script>";
+        return false;
+    }
+
+    // enkripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // tambahkan user baru ke database
+    mysqli_query($conn, "INSERT INTO user VALUES ('', '$username', '$password')");
+
+    return mysqli_affected_rows($conn);
+
+}
+
+?>
