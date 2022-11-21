@@ -19,14 +19,14 @@ function tambah($data){
     $alamat = htmlspecialchars($data["alamat"]);
     $no_telp = htmlspecialchars($data["no_telp"])
 
-    $query = "INSERT INTO mahasiswa VALUES ('', '$id_dokter','$nama_dokter','$spesialis','$alamat','$no_telp)";
+    $query = "INSERT INTO rekam_medis VALUES ('', '$id_dokter','$nama_dokter','$spesialis','$alamat','$no_telp)";
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
 
 function hapus($id){
     global $conn;
-    mysqli_query($conn, "DELETE FROM mahasiswa WHERE id = $id");
+    mysqli_query($conn, "DELETE FROM rekam_medis WHERE id = $id");
     return mysqli_affected_rows($conn);
 }
 
@@ -39,7 +39,7 @@ function ubah($data){
     $alamat = htmlspecialchars($data["alamat"]);
     $no_telp = htmlspecialchars($data["no_telp"]);
 
-    $query = "UPDATE mahasiswa SET 
+    $query = "UPDATE rekam_medis SET 
     id_dokter = '$id_dokter',
     nama_dokter = '$nama_dokter',
     spesialis = '$spesialis',
@@ -53,7 +53,7 @@ function ubah($data){
 }
 
 function cari($keyword) {
-    $query = "SELECT * FROM mahasiswa WHERE 
+    $query = "SELECT * FROM rekam_medis WHERE 
     id_dokter LIKE '%$keyword%' OR
     nama_dokter LIKE '%$keyword%' OR
     spesialis LIKE '%$keyword%' OR
