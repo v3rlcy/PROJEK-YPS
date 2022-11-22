@@ -1,10 +1,13 @@
 <?php
+session_start();
 require 'function.php';
 
 if (isset($_POST["register"])) {
   if (registrasi($_POST) > 0) {
-    $_SESSION['registerSuccess'] = 'Registrasi Berhasil';
-    header('Location: login.php');
+    echo "<script>
+            alert('Registrasi Berhasil');
+            document.location.href = 'login.php';
+          </script>";
   } else {
     echo mysqli_error($conn);
   }
@@ -18,30 +21,13 @@ if (isset($_POST["register"])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <h1>Sign Up</h1>
   <p>Sign Up to have more experience with us!</p>
-
-  <?php
-  if (isset($_SESSION['registerSuccess'])) {
-  ?>
-    <div class="alert alert-success"><?= $_SESSION['registerSuccess'] ?></div>
-  <?php
-  } else if (isset($_SESSION['alreadyExist'])) {
-  ?>
-    <div class="alert alert-danger"><?= $_SESSION['alreadyExist'] ?></div>
-  <?php
-  } else if (isset($_SESSION['notMatch'])) {
-
-  ?>
-    <div class="alert alert-danger"><?= $_SESSION['notMatch'] ?></div>
-  <?php
-  }
-  ?>
-
   <form action="" method="post">
     <ul>
       <li>
@@ -64,6 +50,9 @@ if (isset($_POST["register"])) {
         <button type="submit" name="register">Sign Up Now!</button>
       </li>
     </ul>
+
+    Already have an account?<a href="login.php">Login</a>
+
   </form>
 
 </body>

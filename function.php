@@ -1,5 +1,4 @@
 <?php
-
 $conn = mysqli_connect("localhost", "root", "", "rumah_sakit");
 function query($query)
 {
@@ -83,13 +82,17 @@ function registrasi($data)
     username = '$username'");
 
   if (mysqli_fetch_assoc($result)) {
-    $_SESSION['alreadyExist'] = 'Username telah dipakai';
+    echo "<script>
+            alert('Username sudah terdaftar!');
+          </script>";
     return false;
   }
 
   // konfirmasi password
   if ($password !== $password2) {
-    $_SESSION['notMatch'] = 'Password tidak sesuai';
+    echo "<script>
+            alert('Konfirmasi password tidak sesuai!');
+          </script>";
     return false;
   }
 
