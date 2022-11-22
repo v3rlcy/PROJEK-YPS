@@ -1,6 +1,25 @@
 <?php
 
 session_start();
+require 'function.php';
+
+if (isset($_POST['login'])) {
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+
+  $res = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$username'");
+
+  if (mysqli_num_rows($res) === 1) {
+    $row = mysqli_fetch_assoc($res);
+    if (password_verify($password, $row["password"])) {
+      header("Location: index.php");
+    }
+  }
+
+  $error = true;
+}
+
+
 
 ?>
 <!DOCTYPE html>
@@ -11,12 +30,16 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <h1>Login</h1>
   <p>Login to have more experience with us!</p>
+  <?php if (isset($error)) : ?>
+    <p class="alert danger">Username / Password Salah</p>
+  <?php endif; ?>
   <form action="" method="post">
     <ul>
       <li>
