@@ -1,6 +1,6 @@
 <?php
 session_start();
-require './function.php';
+require '../function.php';
 
 if (isset($_POST["register"])) {
   if (registrasi($_POST) > 0) {
@@ -31,7 +31,7 @@ if (isset($_POST["register"])) {
 
   <div class="container pt-3 mt-5">
     <h1 style="text-align:center;">YPS Hospital</h1>
-    <form action "" method="post">
+    <form action="" method="post">
 
       <div class="form-outline mb-4">
         <label class="form-label" for="nama">Nama</label>

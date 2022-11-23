@@ -2,13 +2,8 @@
 
 session_start();
 
-if( isset($_COOKIE['login'])){
-  if($_COOKIE['login'] == 'true'){
-    $_SESSION['login'] = true;
-  }
-}
 
-require './function.php';
+require '../function.php';
 
 
 if (isset($_POST['login'])) {
@@ -16,19 +11,15 @@ if (isset($_POST['login'])) {
   $password = $_POST["password"];
 
   $res = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$username'");
-  
+
   if (mysqli_num_rows($res) === 1) {
     $row = mysqli_fetch_assoc($res);
-   // var_dump($row); die;
+    // var_dump($row); die;
     if (password_verify($password, $row["password"])) {
 
       $_SESSION["login"] = true;
-
-      if (isset($_POST['remmeber'])){
-        setcookie('login', 'true', time() + 360)
-      }
       header("Location: ../index.php");
-      exit
+      exit;
     }
   }
 
@@ -90,7 +81,7 @@ if (isset($_POST['login'])) {
       </div>
 
       <div class="form-outline mb-4">
-        <input type="checkbox" name="remember" class="form-control" />
+        <input type="checkbox" name="remember"/>
         <label class="form-label" for="remember">Remember Me</label>
       </div>
 
