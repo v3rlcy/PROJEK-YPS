@@ -31,9 +31,12 @@
   <div class="mt-4 container">
     <h3 class="fw-semibold">Selamat Datang di Web Rumah Sakit</h3>
     <p>- Team YPS -</p>
-    <div class="d-flex gap-3 align-items-center">
-    </div>
+<li>
+  <ul>
+      
+  </ul>
+</li>
+
   </div>
 </body>
-
 </html>
