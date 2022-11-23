@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require 'function.php';
+require './function.php';
 
 if (isset($_POST['login'])) {
   $username = $_POST["username"];
@@ -13,13 +13,16 @@ if (isset($_POST['login'])) {
     $row = mysqli_fetch_assoc($res);
    // var_dump($row); die;
     if (password_verify($password, $row["password"])) {
-      header("Location: index.php");
+      header("Location: ../index.php");
     }
   }
 
   $error = true;
 }
+<<<<<<< HEAD:login.php
 
+=======
+>>>>>>> ca9732799780eea43335cfd17e8c9ad31b55d942:auth/login.php
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,9 +41,7 @@ if (isset($_POST['login'])) {
 
   <!-- <h1>Login</h1>
   <p>Login to have more experience with us!</p>
-  <?php if (isset($error)) : ?>
     <p class="alert danger">Username / Password Salah</p>
-  <?php endif; ?>
   <form action="" method="post">
     <ul>
       <li>
@@ -63,27 +64,28 @@ if (isset($_POST['login'])) {
   <?php endif; ?>
 
   <div class="container pt-3 mt-5">
-    <h1 style="text-align:center;" >YPS Hospital</h1>
-  
+    <h1 style="text-align:center;">YPS Hospital</h1>
+
     <form action="" method="post">
 
-  <div class="form-outline mb-4">
-    <label class="form-label" for="nama">Username</label>
-    <input type="text" name="username" class="form-control" />
-  </div>
+      <div class="form-outline mb-4">
+        <label class="form-label" for="nama">Username</label>
+        <input type="text" name="username" class="form-control" />
+      </div>
 
-  <div class="form-outline mb-4">
-    <label class="form-label" for="nama">Password</label>
-    <input type="password" name="password" class="form-control" />
-  </div>
+      <div class="form-outline mb-4">
+        <label class="form-label" for="nama">Password</label>
+        <input type="password" name="password" class="form-control" />
+      </div>
 
-  <!-- login button -->
-  <div class="mb-4">
-  <button type="submit" class="btn btn-success btn-block mb-4 w-100 " name="login">Log in</button>
-  </div>
+      <!-- login button -->
+      <div class="mb-4">
+        <button type="submit" class="btn btn-success btn-block mb-4 w-100 " name="login">Log in</button>
+      </div>
 
-  <p>Don't have an account? <a href="register.php">Sign Up now! </a></p>
-  </form>
+      <p>Don't have an account? <a href="register.php">Sign Up now! </a></p>
+    </form>
 
 </body>
+
 </html>
