@@ -11,62 +11,54 @@ function query($query)
   return $rows;
 }
 
-function tambah($data)
+// Data Obat
+function tambahObat($data)
 {
   global $conn;
-  $id_dokter = htmlspecialchars($data["id_dokter"]);
-  $nama_dokter = htmlspecialchars($data["nama_dokter"]);
-  $spesialis = htmlspecialchars($data["spesialis"]);
-  $alamat = htmlspecialchars($data["alamat"]);
-  $no_telp = htmlspecialchars($data["no_telp"]);
+  $id_obat = htmlspecialchars($data["id_obat"]);
+  $nama_obat = htmlspecialchars($data["nama_obat"]);
+  $ket_obat = htmlspecialchars($data["ket_obat"]);
 
-  $query = "INSERT INTO rekam_medis VALUES ('', '$id_dokter','$nama_dokter','$spesialis','$alamat','$no_telp)";
+  $query = "INSERT INTO tb_obat VALUES ('$id_obat','$nama_obat','$ket_obat')";
   mysqli_query($conn, $query);
   return mysqli_affected_rows($conn);
 }
 
-function hapus($id)
+function hapusObat($id_obat)
 {
   global $conn;
-  mysqli_query($conn, "DELETE FROM rekam_medis WHERE id = $id");
+  mysqli_query($conn, "DELETE FROM tb_obat WHERE id_obat = $id_obat");
   return mysqli_affected_rows($conn);
 }
 
-function ubah($data)
+function ubahObat($data)
 {
   global $conn;
-  $id = $data["id"];
-  $id_dokter = htmlspecialchars($data["id_dokter"]);
-  $nama_dokter = htmlspecialchars($data["nama_dokter"]);
-  $spesialis = htmlspecialchars($data["spesialis"]);
-  $alamat = htmlspecialchars($data["alamat"]);
-  $no_telp = htmlspecialchars($data["no_telp"]);
+  $id_obat = $data["id_obat"];
+  $id_obat = htmlspecialchars($data["id_obat"]);
+  $nama_obat = htmlspecialchars($data["nama_obat"]);
+  $ket_obat = htmlspecialchars($data["ket_obat"]);
 
-  $query = "UPDATE rekam_medis SET 
-    id_dokter = '$id_dokter',
-    nama_dokter = '$nama_dokter',
-    spesialis = '$spesialis',
-    alamat = '$alamat',
-    no_telp = '$no_telp'
-    WHERE id = '$id'
+  $query = "UPDATE tb_obat SET 
+    id_obat = '$id_obat',
+    nama_obat = '$nama_obat',
+    ket_obat = '$ket_obat'
+    WHERE id_obat = '$id_obat'
     ";
 
   mysqli_query($conn, $query);
   return mysqli_affected_rows($conn);
 }
 
-function cari($keyword)
+function cariObat($keyword)
 {
-  $query = "SELECT * FROM rekam_medis WHERE 
-    id_dokter LIKE '%$keyword%' OR
-    nama_dokter LIKE '%$keyword%' OR
-    spesialis LIKE '%$keyword%' OR
-    alamat LIKE '%$keyword%' OR
-    no_telp LIKE '%$keyword%'
+  $query = "SELECT * FROM tb_obat WHERE 
+    id_obat LIKE '%$keyword%' OR
+    nama_obat LIKE '%$keyword%' OR
+    ket_obat LIKE '%$keyword%'
     ";
   return query($query);
 }
-
 
 function registrasi($data)
 {

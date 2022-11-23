@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'function.php';
+require './function.php';
 
 if (isset($_POST["register"])) {
   if (registrasi($_POST) > 0) {
@@ -60,41 +60,38 @@ if (isset($_POST["register"])) {
 
 
   <div class="container pt-3 mt-5">
-    <h1 style="text-align:center;" >YPS Hospital</h1>
-  <form action "" method="post">
-  
-  <div class="form-outline mb-4">
-    <label class="form-label" for="nama">Nama</label>
-    <input type="text" name="nama_user" class="form-control" />
-  </div>
+    <h1 style="text-align:center;">YPS Hospital</h1>
+    <form action "" method="post">
 
-  <div class="form-outline mb-4">
-    <label class="form-label" for="username">Username</label>
-    <input type="text" name="username" class="form-control" />
-  </div>
-  
-  <div class="form-outline mb-4">
-    <label class="form-label" for="password">Password</label>
-    <input type="password" name="password" class="form-control" />
-  </div>
+      <div class="form-outline mb-4">
+        <label class="form-label" for="nama">Nama</label>
+        <input type="text" name="nama_user" class="form-control" />
+      </div>
 
-  <div class="form-outline mb-4">
-    <label class="form-label" for="password">Confirm Password</label>
-    <input type="password" name="password2" class="form-control" />
+      <div class="form-outline mb-4">
+        <label class="form-label" for="username">Username</label>
+        <input type="text" name="username" class="form-control" />
+      </div>
+
+      <div class="form-outline mb-4">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" name="password" class="form-control" />
+      </div>
+
+      <div class="form-outline mb-4">
+        <label class="form-label" for="password">Confirm Password</label>
+        <input type="password" name="password2" class="form-control" />
+      </div>
+
+      <!-- Submit button -->
+      <div class="mb-4">
+        <button type="submit" class="btn btn-primary btn-block mb-4 w-100 " name="register">Sign in</button>
+      </div>
+
+      <p>Already have an account? <a href="login.php">Login </a></p>
+
+    </form>
   </div>
-
-  <!-- Submit button -->
-  <div class="mb-4">
-  <button type="submit" class="btn btn-primary btn-block mb-4 w-100 " name="register" >Sign in</button>
-  </div>
-
-  <p>Already have an account? <a href="login.php">Login </a></p>
-
-</form>
-</div>
 </body>
 
 </html>
-
-
-
