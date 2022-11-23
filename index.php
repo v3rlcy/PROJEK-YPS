@@ -81,9 +81,8 @@ body{
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link" aria-current="page" href="index.php">Home</a>
-            <a class="nav-link" href="dashboard.php">Dashboard</a>
-            <a class="nav-link" href="register.php">Register</a>
-            <a class="nav-link" href="login.php">Login</a>
+            <a class="nav-link" href="auth\register.php">Register</a>
+            <a class="nav-link" href="auth\login.php">Login</a>
           </div>
         </div>
       </div>
