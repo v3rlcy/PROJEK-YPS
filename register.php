@@ -31,8 +31,8 @@ if (isset($_POST["register"])) {
   <form action="" method="post">
     <ul>
       <li>
-        <label for="nama">Nama</label>
-        <input type="text" name="nama_user">
+        <label for="email">email</label>
+        <input type="text" name="email_user">
       </li>
       <li>
         <label for="username">Username</label>
@@ -57,4 +57,4 @@ if (isset($_POST["register"])) {
 
 </body>
 
-</html>
+</html>~

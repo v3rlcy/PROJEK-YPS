@@ -8,9 +8,10 @@ if (isset($_POST['login'])) {
   $password = $_POST["password"];
 
   $res = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$username'");
-
+  
   if (mysqli_num_rows($res) === 1) {
     $row = mysqli_fetch_assoc($res);
+   // var_dump($row); die;
     if (password_verify($password, $row["password"])) {
       header("Location: index.php");
     }
@@ -18,8 +19,6 @@ if (isset($_POST['login'])) {
 
   $error = true;
 }
-
-
 
 ?>
 <!DOCTYPE html>
