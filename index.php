@@ -31,9 +31,10 @@
     <h3 class="fw-semibold">Project Tercinta</h3>
     <p>Team YPS</p>
     <div class="d-flex gap-3 align-items-center">
-      <a class="text-black text-decoration-none" href="login.php">Login</a>
-      <a class="btn btn-primary" href="register.php">Register</a>
+      <a class="text-black text-decoration-none" href="./auth/login.php">Login</a>
+      <a class="btn btn-primary" href="./auth/register.php">Register</a>
     </div>
   </div>
 </body>
+
 </html>

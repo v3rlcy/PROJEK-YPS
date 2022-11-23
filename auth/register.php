@@ -94,10 +94,4 @@ if (isset($_POST["register"])) {
   </div>
 </body>
 
-<<<<<<< HEAD:register.php
 </html>
-
-
-=======
-</html>
->>>>>>> ca9732799780eea43335cfd17e8c9ad31b55d942:auth/register.php
