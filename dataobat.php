@@ -3,7 +3,7 @@ require 'function.php';
 $obat = query("SELECT * FROM tb_obat");
 
 if(isset($_POST["cari"])){
-    $mov = cari($_POST["keyword"]);
+    $obat = cariobat($_POST["keyword"]);
 }
 ?>
 
@@ -33,7 +33,7 @@ if(isset($_POST["cari"])){
 
     <div class ="text-end">
         <button class="btn btn-outline-info">
-        <a href="tambah.php">TAMBAHKAN DATA</a>
+        <a href="tambahobat.php">TAMBAHKAN DATA</a>
         </button>
     </div>
 
@@ -50,22 +50,20 @@ if(isset($_POST["cari"])){
     <?php $i = 1;
     foreach ($obat as $row) : ?>
     <tr>
-    <td><?= $i; ?></td>
+    <td><?= $row['id_obat']; ?></td>
     <td>
         <button class="btn btn-outline-danger">
-        <a href="hapus.php?movie_id=<?= $row['movie_id'] ?>">HAPUS</a>
+        <a href="hapusobat.php?id_obat=<?= $row['id_obat'] ?>">HAPUS</a>
         </button>
         <button class="btn btn-outline-info">
-        <a href="ubah.php?movie_id=<?= $row['movie_id'] ?>">UBAH</a>
+        <a href="ubahobat.php?id_obat=<?= $row['id_obat'] ?>">UBAH</a>
         </button>
     </td>
     <td><?= $row['nama_obat']; ?></td>
     <td><?= $row['ket_obat']; ?></td>
-    <?php $i++;
-    endforeach; ?>
+    <?php endforeach; ?>
     </tr>
 </table>
 
 </body>
 </html>
-ppppp
