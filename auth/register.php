@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require '../function.php';
 
 if (isset($_POST["register"])) {
@@ -31,7 +31,7 @@ if (isset($_POST["register"])) {
 
   <div class="container pt-3 mt-5">
     <h1 style="text-align:center;">YPS Hospital</h1>
-    <form action="" method="post">
+    <form action="send.php" method="post">
 
       <div class="form-outline mb-4">
         <label class="form-label" for="nama">Nama</label>
@@ -39,8 +39,8 @@ if (isset($_POST["register"])) {
       </div>
 
       <div class="form-outline mb-4">
-        <label class="form-label" for="username">Username</label>
-        <input type="text" name="username" class="form-control" />
+        <label class="form-label" for="email">email</label>
+        <input type="email" name="email" class="form-control" />
       </div>
 
       <div class="form-outline mb-4">
