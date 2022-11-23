@@ -26,7 +26,13 @@ if( isset($_POST["send"])){
 
     $mail->send();
     
-    echo
-}
+    echo 
+    "
+    <script>
+    alert('Sent! Check your Email')
+    </script>
+    "
+
+};
 
 ?>
