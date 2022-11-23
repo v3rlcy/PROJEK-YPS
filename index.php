@@ -37,6 +37,53 @@
   </div>
 </body>
 
+<div class="container mt-5 bg-outline-">
 
+    <h1 class="fw-bold d-flex justify-content-center">RUMAH SAKIT</h1>
+    
+    <a class="btn btn-primary fw-bold" href="tambah.php">Tambahkan data</a>
+
+    <form action="" method="post">
+    <div class="d-flex justify-content-end input-group mb-3 mt-3">
+    <input class="form control" type="text" name="keyword" size="50" autofocus 
+    placeholder="search here">
+    <button class="btn btn-outline-dark" type="submit" name="cari">Cari!</button>
+    </div>
+    </form>
+
+<br>
+    <table class="table table-bordered" border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>No.</th>
+            <th>Pasien</th>
+            <th>Keluhan</th>
+            <th>Dokter</th>
+            <th>Diagnosa</th>
+            <th>Poli</th>
+            <th>Tanggal Periksa</th>
+        </tr>
+        <?php $i = 1; ?>
+        <?php foreach( $rekam_medis as $row): ?>
+        <tr> 
+            <td><?= $i; ?></td>
+            <td>
+                <a class="btn btn-outline-primary" href="ubah.php?id=<?= $row["id"];?>">ubah</a> 
+                <a class="btn btn-outline-danger" href="hapus.php?id=<?= $row["id"];?>" onclick = "return confirm ('yakin?')">hapus</a>
+        </td>
+            <td><?php echo $row["Pasien"]; ?></td>
+            <td><?php echo $row["Keluhan"]; ?></td>
+            <td><?php echo $row["Dokter"]; ?></td>
+            <td><?php echo $row["Diagnosa"]; ?></td>
+            <td><?php echo $row["Poli"]; ?></td>
+            <td><?php echo $row["Tanggal Periksa"]; ?></td>
+        </tr>
+       
+        <?php $i++; ?>
+        <?php endforeach; ?>
+        </div>
+    </table>
+
+    <a class="btn btn-danger fw-bold" href="logout.php">Log out</a>
+</div>
 
 </html>
