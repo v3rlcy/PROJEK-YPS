@@ -34,8 +34,8 @@ if (isset($_POST["register"])) {
   <form action="" method="post">
     <ul>
       <li>
-        <label for="nama">Nama</label>
-        <input type="text" name="nama_user">
+        <label for="email">email</label>
+        <input type="text" name="email_user">
       </li>
       <li>
         <label for="username">Username</label>
@@ -94,4 +94,10 @@ if (isset($_POST["register"])) {
   </div>
 </body>
 
+<<<<<<< HEAD:register.php
 </html>
+
+
+=======
+</html>
+>>>>>>> ca9732799780eea43335cfd17e8c9ad31b55d942:auth/register.php
