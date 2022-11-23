@@ -29,36 +29,6 @@ if (isset($_POST["register"])) {
 
 <body>
 
-  <!-- <h1>Sign Up</h1>
-  <p>Sign Up to have more experience with us!</p>
-  <form action="" method="post">
-    <ul>
-      <li>
-        <label for="email">email</label>
-        <input type="text" name="email_user">
-      </li>
-      <li>
-        <label for="username">Username</label>
-        <input type="text" name="username">
-      </li>
-      <li>
-        <label for="password">Your password</label>
-        <input type="password" name="password">
-      </li>
-      <li>
-        <label for="password">Confirm your password</label>
-        <input type="password" name="password2">
-      </li>
-      <li>
-        <button type="submit" name="register">Sign Up Now!</button>
-      </li>
-    </ul>
-
-    Already have an account?<a href="login.php">Login</a>
-
-  </form> -->
-
-
   <div class="container pt-3 mt-5">
     <h1 style="text-align:center;">YPS Hospital</h1>
     <form action "" method="post">
@@ -94,10 +64,4 @@ if (isset($_POST["register"])) {
   </div>
 </body>
 
-<<<<<<< HEAD:register.php
 </html>
-
-
-=======
-</html>
->>>>>>> ca9732799780eea43335cfd17e8c9ad31b55d942:auth/register.php

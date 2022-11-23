@@ -1,7 +1,15 @@
 <?php
 
 session_start();
+
+if( isset($_COOKIE['login'])){
+  if($_COOKIE['login'] == 'true'){
+    $_SESSION['login'] = true;
+  }
+}
+
 require './function.php';
+
 
 if (isset($_POST['login'])) {
   $username = $_POST["username"];
@@ -13,16 +21,19 @@ if (isset($_POST['login'])) {
     $row = mysqli_fetch_assoc($res);
    // var_dump($row); die;
     if (password_verify($password, $row["password"])) {
+
+      $_SESSION["login"] = true;
+
+      if (isset($_POST['remmeber'])){
+        setcookie('login', 'true', time() + 360)
+      }
       header("Location: ../index.php");
+      exit
     }
   }
 
   $error = true;
 }
-<<<<<<< HEAD:login.php
-
-=======
->>>>>>> ca9732799780eea43335cfd17e8c9ad31b55d942:auth/login.php
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,6 +87,11 @@ if (isset($_POST['login'])) {
       <div class="form-outline mb-4">
         <label class="form-label" for="nama">Password</label>
         <input type="password" name="password" class="form-control" />
+      </div>
+
+      <div class="form-outline mb-4">
+        <input type="checkbox" name="remember" class="form-control" />
+        <label class="form-label" for="remember">Remember Me</label>
       </div>
 
       <!-- login button -->

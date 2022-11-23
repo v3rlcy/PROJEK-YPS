@@ -20,19 +20,17 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" aria-current="page" href="index.php">Home</a>
-          <a class="nav-link" href="register.php">Register</a>
-          <a class="nav-link" href="login.php">Login</a>
+          <a class="nav-link" href="auth/register.php">Register</a>
+          <a class="nav-link" href="auth/login.php">Login</a>
         </div>
       </div>
     </div>
 
   </nav>
   <div class="mt-4 container">
-    <h3 class="fw-semibold">Project Tercinta</h3>
-    <p>Team YPS</p>
+    <h3 class="fw-semibold">Selamat Datang di Web Rumah Sakit</h3>
+    <p>- Team YPS -</p>
     <div class="d-flex gap-3 align-items-center">
-      <a class="text-black text-decoration-none" href="login.php">Login</a>
-      <a class="btn btn-primary" href="register.php">Register</a>
     </div>
   </div>
 </body>
