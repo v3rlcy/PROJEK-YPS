@@ -1,19 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-require 'header.php';
-
-if(isset($_POST["register"])){
-    if(registrasi($_POST) > 0 ){
-    echo "<script> alert ('user baru berhasil di tambahkan'); </script>";
-    } else {
-        echo mysqli_error($conn);
-    }
-}
-
-?>
-
-=======
 session_start();
 require 'function.php';
 
@@ -28,7 +13,6 @@ if (isset($_POST["register"])) {
   }
 }
 ?>
->>>>>>> db40d23e83bea79e41755603eb7117e2f8a1c564
 <!DOCTYPE html>
 <html lang="en">
 
