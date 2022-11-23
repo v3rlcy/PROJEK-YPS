@@ -1,6 +1,6 @@
 <?php
-session_start();
-require './function.php';
+
+require '../function.php';
 
 if (isset($_POST["register"])) {
   if (registrasi($_POST) > 0) {
@@ -29,39 +29,9 @@ if (isset($_POST["register"])) {
 
 <body>
 
-  <!-- <h1>Sign Up</h1>
-  <p>Sign Up to have more experience with us!</p>
-  <form action="" method="post">
-    <ul>
-      <li>
-        <label for="nama">Nama</label>
-        <input type="text" name="nama_user">
-      </li>
-      <li>
-        <label for="username">Username</label>
-        <input type="text" name="username">
-      </li>
-      <li>
-        <label for="password">Your password</label>
-        <input type="password" name="password">
-      </li>
-      <li>
-        <label for="password">Confirm your password</label>
-        <input type="password" name="password2">
-      </li>
-      <li>
-        <button type="submit" name="register">Sign Up Now!</button>
-      </li>
-    </ul>
-
-    Already have an account?<a href="login.php">Login</a>
-
-  </form> -->
-
-
   <div class="container pt-3 mt-5">
     <h1 style="text-align:center;">YPS Hospital</h1>
-    <form action "" method="post">
+    <form action="" method="post">
 
       <div class="form-outline mb-4">
         <label class="form-label" for="nama">Nama</label>
