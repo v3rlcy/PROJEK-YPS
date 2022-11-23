@@ -1,6 +1,6 @@
 <?php
 session_start();
-require './function.php';
+require '../function.php';
 
 if (isset($_POST["register"])) {
   if (registrasi($_POST) > 0) {

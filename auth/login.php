@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require './function.php';
+require '../function.php';
 
 if (isset($_POST['login'])) {
   $username = $_POST["username"];
