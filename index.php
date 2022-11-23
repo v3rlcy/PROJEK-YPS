@@ -22,6 +22,7 @@
           <a class="nav-link" aria-current="page" href="index.php">Home</a>
           <a class="btn btn-primary" href="./auth/register.php">Register</a>
           <a class="btn btn-primary" href="./auth/login.php">Login</a>
+          <a class="btn btn-danger" href="./auth/logout.php">Log Out</a>
         </div>
       </div>
     </div>
