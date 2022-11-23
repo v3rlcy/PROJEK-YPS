@@ -18,9 +18,6 @@ if (isset($_POST['login'])) {
 
   $error = true;
 }
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
